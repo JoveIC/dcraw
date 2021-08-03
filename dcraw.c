@@ -9154,6 +9154,17 @@ void CLASS convert_to_rgb()
     fprintf (stderr, raw_color ? _("Building histograms...\n") :
 	_("Converting to %s colorspace...\n"), name[output_color-1]);
 
+  if (verbose){
+    fprintf (stderr, "CCM: \n");
+    for (i=0; i < 3; i++){
+      for (j=0; j < colors; j++){
+        fprintf (stderr, " %9.8f", out_cam[i][j]);
+      }
+      fprintf (stderr, "\n");
+  }
+    fprintf (stderr, "\n");
+  }
+
   memset (histogram, 0, sizeof histogram);
   for (img=image[0], row=0; row < height; row++)
     for (col=0; col < width; col++, img+=4) {
